@@ -1,33 +1,41 @@
-.App {
-  text-align: center;
+.flip-card {
+    margin: 10px;
+    display: inline-block;
+    background-color: transparent;
+    width: 300px;
+    height: 200px;
+    border: 1px solid #f1f1f1;
+    perspective: 1000px;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.flip-card-inner {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.2s;
+    transform-style: preserve-3d;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.flip-card:active .flip-card-inner {
+    transform: rotateY(180deg);
 }
 
-.App-link {
-  color: #61dafb;
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.flip-card-front {
+    background-color: lightskyblue;
+}
+
+.flip-card-back {
+    background-color: lightgreen;
+    transform: rotateY(180deg);
+}
+
+.result {
+    color: black;
 }
